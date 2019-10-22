@@ -1,7 +1,11 @@
 <?php
 include "database/db.php";
 
+// session dimulai
 session_start();
+
+// melakukan cek apakah session bernama username ada.. 
+// jika ada maka akan diarahkan ke halaman index
 
 if (isset($_SESSION['username'])) {
   if ($_SESSION['username']) {
@@ -72,6 +76,7 @@ if (isset($_SESSION['username'])) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script>
+    // melakukan validasi apakah username atau password itu diisi atau tidak ?
     const validasi = (form) => {
       let v_user = document.getElementById('v_username');
       let v_pass = document.getElementById('v_password')
