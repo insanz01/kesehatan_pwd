@@ -68,7 +68,7 @@ $pasien = mysqli_query($connection, $query);
                   <td><?= $row['berat_badan'] ?></td>
                   <td>
                     <a href="form_edit.php?id=<?= $row['id'] ?>" class="badge badge-info badge-pill">Ubah</a>
-                    <a href="configure/hapus.php?id=<?= $row['id'] ?>" class="badge badge-danger badge-pill">Hapus</a>
+                    <button class="badge badge-danger badge-pill" data-toggle="modal" data-target="#hapusModal" ketempelan="<?= $row['id'] ?>" onclick="hapusDong(this)">Hapus</button>
                   </td>
                 </tr>
               <?php endwhile; ?>
@@ -78,6 +78,39 @@ $pasien = mysqli_query($connection, $query);
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hapusModalLabel">Notice</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="configure/hapus.php" method="GET">
+          <div class="modal-body">
+            <input type="hidden" id="data_hapus" name="id">
+            Apakah kamu yakin ingin menghapus file ini ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Gak dong ah</button>
+            <button type="submit" class="btn btn-danger">Ya</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hapusDong = (e) => {
+      console.log(e.getAttribute('ketempelan'));
+
+      let id = document.getElementById('data_hapus');
+      id.value = e.getAttribute('ketempelan');
+    }
+  </script>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
