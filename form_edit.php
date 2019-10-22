@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!$_SESSION['username']) {
+  header('location:login.php');
+}
+
 include "database/db.php";
 
 if (isset($_GET['id'])) {
@@ -27,6 +33,15 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+  <!-- Image and text -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="img/heartbeat.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Kesehatan
+    </a>
+
+    <a href="configure/logout.php" class="btn btn-outline-primary">Logout</a>
+  </nav>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 pt-4">
