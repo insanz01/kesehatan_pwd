@@ -3,8 +3,10 @@ include "database/db.php";
 
 session_start();
 
-if ($_SESSION['username']) {
-  header('location:index.php');
+if (isset($_SESSION['username'])) {
+  if ($_SESSION['username']) {
+    header('location:index.php');
+  }
 }
 
 ?>
