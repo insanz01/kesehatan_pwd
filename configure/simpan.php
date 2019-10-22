@@ -13,7 +13,7 @@ if (isset($_POST['nama'])) {
   $tinggi_badan = $_POST['tinggi_badan'];
   $berat_badan = $_POST['berat_badan'];
 
-  $query = "INSERT INTO pasien VALUES ('', '$nama', '$nomor', '$alamat', '$tempat_lahir', '$tanggal_lahir', '$golongan_darah', $tinggi_badan, $berat_badan)";
+  $query = "INSERT INTO pasien VALUES (NULL, '$nama', '$nomor', '$alamat', '$tempat_lahir', '$tanggal_lahir', '$golongan_darah', $tinggi_badan, $berat_badan)";
 
   $res = mysqli_query($connection, $query);
 
