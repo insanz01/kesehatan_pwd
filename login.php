@@ -9,7 +9,7 @@ session_start();
 
 if (isset($_SESSION['username'])) {
   if ($_SESSION['username']) {
-    header('location:index.php');
+    header('location:index.php'); // mengarahkan ke file index
   }
 }
 
@@ -81,18 +81,20 @@ if (isset($_SESSION['username'])) {
       let v_user = document.getElementById('v_username');
       let v_pass = document.getElementById('v_password')
 
+      // jika kolom username kosong
       if (form.username.value == "") {
-        v_user.innerText = "Username tidak boleh kosong.";
+        v_user.innerText = "Username tidak boleh kosong."; // pesan error ketika kolom username kosong
         return false;
       } else {
-        v_user.innerText = "";
+        v_user.innerText = ""; // menghilangkan pesan error ketika kolom username berisi
       }
 
+      // jika kolom password kosong
       if (form.password.value == "") {
-        v_pass.innerText = "Password tidak boleh kosong";
+        v_pass.innerText = "Password tidak boleh kosong"; // pesan error ketika kolom password kosong
         return false;
       } else {
-        v_pass.innerText = "";
+        v_pass.innerText = ""; // menghilangkan pesan error ketika kolom password berisi
       }
     }
   </script>

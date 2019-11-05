@@ -1,12 +1,17 @@
 <?php
+// session dimulai
 session_start();
 
+// jika tidak ada session yang bernama username
+// maka akan diarahkan ke halaman login
 if (!$_SESSION['username']) {
   header('location:login.php');
 }
 
+// memanggil koneksi database
 include "database/db.php";
 
+// mengambil semua data dari tabel pasien
 $query = "SELECT * FROM pasien";
 
 $pasien = mysqli_query($connection, $query);

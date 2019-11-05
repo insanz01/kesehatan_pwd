@@ -130,14 +130,15 @@ if (!$_SESSION['username']) {
 
       let number_validate = /[0-9]/g
       let char_validate = /[A-z]/g
-      let require = 0;
+      let require = 0; // inisialisasi kebutuhan kolom form yang akan dilakukan validasi
 
+      // jika kolom nama tidak mengandung angka dan kolom nama tidak kosong
       if (!nama.match(number_validate) && nama != "") {
-        require++;
+        require++; // syarat validasi bertambah 1
 
-        v_nama.innerText = "";
+        v_nama.innerText = ""; // tidak menampilkan pesan error
       } else {
-        v_nama.innerText = "Masih ada yang salah pada kolom nama";
+        v_nama.innerText = "Masih ada yang salah pada kolom nama"; // menampilkan pesan error
         // return false;
       }
 
@@ -195,10 +196,11 @@ if (!$_SESSION['username']) {
         // return false;
       }
 
+      // jika syarat 7 kolom yang tervalidasi
       if (require == 7) {
-        return true;
+        return true; // melanjutkan ke proses selanjutnya
       } else {
-        Swal.fire('Ops.. ', 'Masih ada yang salah', 'error');
+        Swal.fire('Ops.. ', 'Masih ada yang salah', 'error'); // menampilkan pesan error berupa alert
         return false;
       }
     }

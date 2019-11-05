@@ -12,6 +12,7 @@ if (isset($_POST['id'])) {
   $tinggi_badan = $_POST['tinggi_badan'];
   $berat_badan = $_POST['berat_badan'];
 
+  // melakukan update pada setiap atribut yang berubah pada tabel pasien
   $query = "UPDATE pasien SET nama='$nama', nomor='$nomor', alamat='$alamat', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', golongan_darah='$golongan_darah', tinggi_badan='$tinggi_badan', berat_badan='$berat_badan' WHERE id='$id'";
 
   if (mysqli_query($connection, $query)) {
